@@ -1,25 +1,32 @@
-# Mega Pack de Inventores — site de vendas (Brasil)
+# Mega Pack de Inventores — página de vendas
 
-Página responsiva para o Mega Pack de Inventores, desenvolvida com foco em telemóveis.
+Site estático responsivo em português do Brasil, com Hero, carrossel de projetos, benefícios, conteúdo dos kits, bónus, preços, comparação, garantia, FAQ e chamadas para compra.
 
-## Ofertas
-- Kit Essencial: R$ 29,90 — +200 projetos e quatro materiais complementares.
-- Kit Completo: R$ 47,90 — +250 projetos, dez vídeos, dois materiais exclusivos e área de membros privada.
-- Checkout Essencial: https://pay.hotmart.com/C107757218F?off=egruojc3&checkoutMode=10
-- Checkout Completo: https://pay.hotmart.com/C107757218F?off=7b57i6jg&checkoutMode=10
+## Ficheiros incluídos
+- `index.html` — secções, copy e links dos checkouts.
+- `styles.css` — estilos responsivos e animações leves.
+- `script.js` — comportamento do carrossel.
+- `assets/hero-mega-pack.webp` — mockup do Hero.
+- `assets/pagina-{1..4}.webp` — quatro imagens traduzidas do carrossel.
+- `vercel.json` — configuração de site estático.
 
-## Estado
-**EM DESENVOLVIMENTO — NÃO LANÇAR CAMPANHAS AINDA.**
+## Checkouts da Hotmart
+- **Essencial — preço provisório R$ 29,90:** https://pay.hotmart.com/C107757218F?off=egruojc3&checkoutMode=10
+- **Completo — preço provisório R$ 47,90:** https://pay.hotmart.com/C107757218F?off=7b57i6jg&checkoutMode=10
 
-Os preços devem ser confirmados na Hotmart. Antes da publicação comercial devem ser concluídos o suporte, as políticas de privacidade e reembolso, a informação da garantia e a validação dos restantes benefícios. Não publicar avaliações ou descontos sem comprovação.
+## Publicar
+1. Ligar este repositório à Vercel (ou a outra plataforma estática com termos comerciais compatíveis).
+2. Usar a branch `main`, directório raiz, framework **Other/None**, sem comando de build.
+3. Cada push para `main` poderá gerar uma nova publicação após a integração Git ficar activa.
 
-## Hospedagem
-Este projeto é um site estático. Pode ser publicado na Vercel (num plano que permita utilização comercial) ou noutra plataforma adequada. A conta Vercel ligada tem o projecto `mega-pack-inventores` criado, ainda sem publicação.
+**Estado:** código e cinco imagens enviados para GitHub. A publicação final do site ainda está pendente de integração/autorização na Vercel.
 
-## Ficheiros
-- `index.html` — estrutura e copy.
-- `styles.css` — design mobile-first.
-- `script.js` — carrossel e microinteracções.
-- `assets/` — imagens WebP do kit e do carrossel (adicionar quando sincronizadas).
+## Antes de vender
+- Confirmar os preços nos dois checkouts Hotmart.
+- Substituir qualquer avaliação fictícia por testemunhos verificáveis ou omiti-la.
+- Validar garantia/reembolso, suporte, políticas de privacidade/termos e entrega dos produtos.
+- Confirmar a contagem e a disponibilidade de todos os materiais e vídeos.
+- O plano Hobby da Vercel não se destina a páginas de vendas comerciais.
+- Validar os textos e elementos gráficos de acordo com os direitos de utilização declarados pelo titular.
 
 © 2026 Mega Pack de Inventores.
