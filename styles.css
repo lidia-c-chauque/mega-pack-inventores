@@ -148,3 +148,22 @@ body{padding-top:34px;padding-bottom:0}
   .solution-icon{flex-basis:56px;width:56px;height:56px}
   .solution-section .solution-heading h2{font-size:1.88rem}
 }
+
+/* Secção de bónus: as quatro artes são os próprios cartões, sem texto duplicado. */
+.bonus-section{background:#fff}
+.bonus-gallery-wrap{max-width:1000px}
+.bonus-gallery-heading{text-align:center;max-width:850px;margin:0 auto 21px}
+.bonus-gallery-heading .eyebrow{margin-bottom:15px}
+.bonus-gallery-heading h2{font-size:clamp(1.9rem,4.7vw,3.2rem);line-height:1.08;letter-spacing:-.04em;margin:0 auto 13px;font-weight:900}
+.bonus-gallery-heading .bonus-green{color:#169743}
+.bonus-gallery-heading p{font-size:clamp(.98rem,1.5vw,1.12rem);color:#655b70;line-height:1.5;margin:0 auto;max-width:760px}
+.bonus-gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;width:100%;max-width:960px;margin:0 auto}
+.bonus-gallery img{display:block;width:100%;height:auto;min-width:0;border-radius:20px;box-shadow:0 6px 19px #24164312}
+@media(max-width:720px){
+ .bonus-gallery-wrap{width:min(calc(100% - 22px),960px)}
+ .bonus-gallery-heading{margin-bottom:17px}
+ .bonus-gallery-heading h2{font-size:clamp(1.75rem,7.4vw,2.35rem);line-height:1.12}
+ .bonus-gallery-heading p{font-size:.95rem}
+ .bonus-gallery{gap:7px}
+ .bonus-gallery img{border-radius:13px;box-shadow:0 4px 12px #24164311}
+}
