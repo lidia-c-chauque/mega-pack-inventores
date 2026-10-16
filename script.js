@@ -8,3 +8,12 @@
  windowEl?.addEventListener('touchstart',e=>{downX=e.touches[0].clientX},{passive:true});windowEl?.addEventListener('touchend',e=>{if(downX===null)return;const delta=e.changedTouches[0].clientX-downX;if(Math.abs(delta)>40)update(active+(delta<0?1:-1));downX=null},{passive:true});
 })();
 
+
+/* Data actual do mercado brasileiro: actualiza mesmo com a página aberta. */
+(()=>{
+ const dateNode=document.getElementById('offer-current-date');
+ if(!dateNode)return;
+ const formatDate=()=>{const value=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'numeric',month:'long'}).format(new Date());dateNode.textContent=value;dateNode.setAttribute('datetime',new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()));};
+ formatDate();
+ setInterval(formatDate,60000);
+})();
