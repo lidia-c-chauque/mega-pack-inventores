@@ -106,3 +106,45 @@ body{padding-top:34px;padding-bottom:0}
  .problem-section .routine-card{grid-template-columns:34px minmax(0,1fr);gap:12px;padding:16px 14px;min-height:86px}
  .problem-section .routine-card p{font-size:15px;line-height:1.43}
 }
+
+/* QUARTA SECÇÃO — solução aprovada; ícones vectoriais leves e layout responsivo */
+.solution-section{background:#f8f6ff}
+.solution-section .solution-wrap{max-width:1080px}
+.solution-section .solution-heading{text-align:center;max-width:780px;margin:0 auto 33px}
+.solution-section .solution-eyebrow{display:inline-block;background:#efe6ff;color:#6736b9;font-weight:850;font-size:.72rem;letter-spacing:.07em;line-height:1.25;padding:9px 15px;border-radius:40px;margin-bottom:17px}
+.solution-section .solution-heading h2{font-size:clamp(2rem,4.8vw,3.35rem);line-height:1.13;letter-spacing:-.042em;font-weight:900;margin:0 auto 17px}
+.solution-section .solution-heading p{font-size:clamp(1rem,1.65vw,1.15rem);line-height:1.52;color:#625773;margin:0 auto;max-width:670px}
+.solution-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 auto}
+.solution-value{min-width:0;display:flex;align-items:center;gap:14px;background:white;border:1px solid #e9e2ef;border-radius:20px;padding:20px 17px;box-shadow:0 7px 25px #27163b09}
+.solution-icon{display:grid;place-items:center;flex:0 0 60px;width:60px;height:60px;border-radius:16px}
+.solution-icon svg{width:32px;height:32px}
+.solution-icon-robot{background:#eee6ff;color:#6738c5}
+.solution-icon-science{background:#e7f8ee;color:#128452}
+.solution-icon-family{background:#fff2d0;color:#aa780c}
+.solution-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.solution-copy strong{color:#291940;font-size:1.04rem;line-height:1.3;font-weight:850}
+.solution-copy .solution-count{color:#5831aa;font-size:2rem;line-height:1.06;font-weight:900;letter-spacing:-.04em}
+.solution-copy span{color:#675d74;font-size:.89rem;line-height:1.42}
+.solution-quote{display:flex;align-items:center;flex-direction:column;gap:7px;background:#ede6fa;color:#281740;border-radius:20px;padding:22px;margin:22px auto 0;max-width:680px;text-align:center}
+.solution-quote-icon{color:#6339ba}
+.solution-quote-icon svg{width:25px;height:25px}
+.solution-quote-title{font-size:clamp(1.25rem,2.4vw,1.55rem);font-weight:850;line-height:1.23;letter-spacing:-.025em;margin:0}
+.solution-quote-subtitle{font-size:.94rem;color:#64546f;margin:0;line-height:1.4}
+@media(max-width:767px){
+  .solution-section .solution-wrap{max-width:550px}
+  .solution-section .solution-heading{margin-bottom:25px}
+  .solution-section .solution-heading h2{font-size:clamp(1.95rem,7.3vw,2.45rem);line-height:1.13;margin-bottom:13px}
+  .solution-section .solution-heading p{font-size:1rem}
+  .solution-values{grid-template-columns:minmax(0,1fr);gap:12px}
+  .solution-value{gap:15px;padding:16px;border-radius:17px;min-height:94px}
+  .solution-icon{flex-basis:62px;width:62px;height:62px}
+  .solution-copy strong{font-size:1.02rem}
+  .solution-copy .solution-count{font-size:2rem}
+  .solution-copy span{font-size:.9rem}
+  .solution-quote{margin-top:16px;padding:22px 15px}
+}
+@media(max-width:360px){
+  .solution-value{gap:11px;padding:14px}
+  .solution-icon{flex-basis:56px;width:56px;height:56px}
+  .solution-section .solution-heading h2{font-size:1.88rem}
+}
