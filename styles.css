@@ -8,7 +8,7 @@
 /* PREÇOS — CARDS LEGÍVEIS */
 .pricing-section{background:#f7f4fc}
 .pricing-section .section-intro{max-width:760px}
-.pricing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:990px;margin:0 auto;align-items:stretch}
+.pricing-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;max-width:990px;margin:0 auto;align-items:stretch}
 .price-card{min-width:0;overflow:hidden;border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:26px;box-shadow:0 15px 45px #25143e15}
 .essential{background:#fff;border:1px solid #e7dff0}
 .complete{background:#281841;border:2px solid #9475e4;color:#fff;box-shadow:0 17px 46px #28184132}
@@ -65,3 +65,28 @@ body{padding-top:34px;padding-bottom:0}
 .daily-offer-bar time{font-weight:850;color:#ffdf63}
 @media(max-width:360px){.daily-offer-bar{font-size:11px;padding-inline:8px}}
 @media(display-mode:standalone){body{padding-top:calc(34px + env(safe-area-inset-top))}.daily-offer-bar{padding-top:calc(6px + env(safe-area-inset-top))}}
+
+/* OFERTAS: versão mobile em coluna única. Desktop ganha duas colunas apenas a partir de 768px. */
+@media(min-width:768px){
+  .pricing-section .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:767px){
+  .pricing-section .pricing-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;width:100%;max-width:520px;margin-inline:auto;align-items:stretch}
+  .pricing-section .price-card{display:flex;flex-direction:column;min-width:0;width:100%;padding:26px 22px;border-radius:22px;gap:23px}
+  .pricing-section .price-card h3{font-size:1.65rem;line-height:1.2}
+  .pricing-section .kit-label{font-size:.69rem;padding:8px 13px}
+  .pricing-section .price-top p{font-size:.92rem;line-height:1.45}
+  .pricing-section .price-list{gap:17px}
+  .pricing-section .price-list li{display:grid;grid-template-columns:24px minmax(0,1fr);align-items:start;gap:11px;font-size:1rem;line-height:1.45}
+  .pricing-section .price-list li::before{width:24px;height:24px;min-width:24px}
+  .pricing-section .price-list li strong{font-size:1rem;line-height:1.35}
+  .pricing-section .price-list li span{font-size:.91rem;line-height:1.45}
+  .pricing-section .amount{font-size:2.7rem;margin-bottom:17px}
+  .pricing-section .price-bottom .btn{font-size:.9rem;min-height:60px;padding:14px}
+  .pricing-section .upgrade-note{font-size:.94rem}
+}
+@media(max-width:360px){
+  .pricing-section .price-card{padding:23px 18px}
+  .pricing-section .price-list li strong{font-size:.96rem}
+  .pricing-section .price-list li span{font-size:.87rem}
+}
