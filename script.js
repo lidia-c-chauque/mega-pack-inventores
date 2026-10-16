@@ -19,7 +19,7 @@
    const now=new Date();
    const label=monthFormatter.format(now);
    const pieces=Object.fromEntries(isoFormatter.formatToParts(now).filter(p=>p.type==='day'||p.type==='month'||p.type==='year').map(p=>[p.type,p.value]));
-   dateNode.textContent=', '+label;
+   dateNode.textContent=label;
    dateNode.dateTime=pieces.year+'-'+pieces.month+'-'+pieces.day;
  };
  refreshDate();
