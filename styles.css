@@ -58,46 +58,10 @@
 @media(max-width:365px){.hero h1{font-size:1.98rem}.eyebrow-hero{font-size:.63rem}.rating{gap:5px}.trust-row span{font-size:.73rem}.pricing-grid{gap:7px}.price-card{padding:13px 9px}.price-list li{font-size:.74rem}.amount{font-size:1.65rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.carousel-track,.btn{transition:none!important}}
 
-
-/* Barra fixa com data corrente do Brasil, sem prazo fictício de expiração */
-body{padding-bottom:calc(82px + env(safe-area-inset-bottom))}
-.sticky-offer{position:fixed;bottom:0;left:0;right:0;z-index:1000;padding:11px max(16px, env(safe-area-inset-right)) calc(11px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));background:#25163b;color:#fff;box-shadow:0 -9px 30px #140e2450}
-.sticky-offer-inner{max-width:990px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.sticky-offer-copy{display:flex;flex-direction:column;min-width:0;gap:2px}
-.sticky-offer-kicker{font-size:.66rem;letter-spacing:.08em;font-weight:800;color:#ffe077}
-.sticky-offer-copy strong{font-size:.95rem;line-height:1.25;white-space:normal}
-.sticky-offer-button{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;gap:8px;padding:13px 23px;min-height:46px;border-radius:12px;background:var(--gold);color:#28183f;font-weight:900;font-size:.87rem;line-height:1.2;box-shadow:0 3px 0 #caa72e}
-.sticky-offer-button:hover{background:#ffe67b}
-.sticky-offer-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
-.pricing-section{scroll-margin-top:14px}
-@media(max-width:720px){
-  .pricing-grid{grid-template-columns:minmax(0,1fr);gap:23px;max-width:510px}
-  .price-card{padding:27px 22px;border-radius:23px;gap:24px}
-  .price-card h3{font-size:1.65rem}
-  .kit-label{font-size:.68rem;padding:8px 13px}
-  .price-top p{font-size:.93rem}
-  .price-list{gap:17px}
-  .price-list li{font-size:1rem;grid-template-columns:24px minmax(0,1fr);gap:11px}
-  .price-list li:before{width:24px;height:24px}
-  .price-list li strong{font-size:1rem}
-  .price-list li span{font-size:.89rem}
-  .amount{font-size:2.65rem}
-  .price-bottom .btn{font-size:.91rem;min-height:60px;padding:15px 14px}
-  .upgrade-note{font-size:.94rem;padding:17px}
-  .sticky-offer-copy strong{font-size:.83rem}
-  .sticky-offer-button{padding:12px 14px;font-size:.79rem}
-}
-@media(max-width:365px){
-  .pricing-grid{gap:20px}
-  .price-card{padding:23px 18px}
-  .kit-heading{gap:10px}
-  .kit-icon{flex-basis:49px;width:49px;height:49px}
-  .price-card h3{font-size:1.5rem}
-  .price-list li,.price-list li strong{font-size:.97rem}
-  .price-list li span{font-size:.85rem}
-  .amount{font-size:2.5rem}
-  .sticky-offer-kicker{font-size:.58rem}
-  .sticky-offer-copy strong{font-size:.75rem}
-  .sticky-offer-button{padding:10px;font-size:.72rem}
-}
-@media(prefers-reduced-motion:reduce){.sticky-offer-button{transition:none}}
+/* Faixa superior permanente: sem botão e sem data-limite fictícia. */
+body{padding-top:34px;padding-bottom:0}
+.daily-offer-bar{position:fixed;inset:0 0 auto;z-index:1100;min-height:34px;display:flex;align-items:center;justify-content:center;background:#281841;color:#fff;text-align:center;padding:6px 12px;box-shadow:0 2px 7px #150d261b;font:750 12px/1.35 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.012em}
+.daily-offer-bar span{display:block;max-width:100%;white-space:normal}
+.daily-offer-bar time{font-weight:850;color:#ffdf63}
+@media(max-width:360px){.daily-offer-bar{font-size:11px;padding-inline:8px}}
+@media(display-mode:standalone){body{padding-top:calc(34px + env(safe-area-inset-top))}.daily-offer-bar{padding-top:calc(6px + env(safe-area-inset-top))}}

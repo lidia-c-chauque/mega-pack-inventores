@@ -8,12 +8,23 @@
  windowEl?.addEventListener('touchstart',e=>{downX=e.touches[0].clientX},{passive:true});windowEl?.addEventListener('touchend',e=>{if(downX===null)return;const delta=e.changedTouches[0].clientX-downX;if(Math.abs(delta)>40)update(active+(delta<0?1:-1));downX=null},{passive:true});
 })();
 
-
-/* Data actual do mercado brasileiro: actualiza mesmo com a página aberta. */
+/* Data do dia no Brasil, actualizada à meia-noite de São Paulo. */
 (()=>{
  const dateNode=document.getElementById('offer-current-date');
  if(!dateNode)return;
- const formatDate=()=>{const value=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'numeric',month:'long'}).format(new Date());dateNode.textContent=value;dateNode.setAttribute('datetime',new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()));};
- formatDate();
- setInterval(formatDate,60000);
+ const timeZone='America/Sao_Paulo';
+ const monthFormatter=new Intl.DateTimeFormat('pt-BR',{timeZone,day:'numeric',month:'long'});
+ const isoFormatter=new Intl.DateTimeFormat('pt-BR',{timeZone,year:'numeric',month:'2-digit',day:'2-digit'});
+ const refreshDate=()=>{
+   const now=new Date();
+   const label=monthFormatter.format(now);
+   const pieces=Object.fromEntries(isoFormatter.formatToParts(now).filter(p=>p.type==='day'||p.type==='month'||p.type==='year').map(p=>[p.type,p.value]));
+   dateNode.textContent=', '+label;
+   dateNode.dateTime=pieces.year+'-'+pieces.month+'-'+pieces.day;
+ };
+ refreshDate();
+ setInterval(refreshDate,30000);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshDate()});
+ window.addEventListener('focus',refreshDate);
+ window.addEventListener('pageshow',refreshDate);
 })();
