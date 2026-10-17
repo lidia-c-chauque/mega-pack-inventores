@@ -28,3 +28,46 @@
  window.addEventListener('focus',refreshDate);
  window.addEventListener('pageshow',refreshDate);
 })();
+
+
+/* Carrega o vídeo apenas perto da secção; autoplay silencioso quando visível. */
+(()=>{
+ const video=document.getElementById('demo-video');
+ const source=video?.querySelector('source[data-src]');
+ if(!video||!source)return;
+ let loaded=false;
+ const loadVideo=()=>{
+   if(loaded)return;
+   loaded=true;
+   source.src=source.dataset.src;
+   video.load();
+ };
+ const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+ const saveData=navigator.connection?.saveData===true;
+ if(!('IntersectionObserver' in window)){
+   video.addEventListener('pointerdown',loadVideo,{once:true});
+   video.addEventListener('focus',loadVideo,{once:true});
+   return;
+ }
+ const prepare=new IntersectionObserver(entries=>{
+   if(entries.some(entry=>entry.isIntersecting)){
+     loadVideo();
+     prepare.disconnect();
+   }
+ },{rootMargin:'450px 0px',threshold:0});
+ prepare.observe(video);
+ const playback=new IntersectionObserver(entries=>{
+   for(const entry of entries){
+     if(entry.isIntersecting){
+       loadVideo();
+       if(!reducedMotion&&!saveData&&!video.ended){
+         const task=video.play();
+         task?.catch(()=>{/* Navegador pode impedir autoplay; controlos permanecem visíveis. */});
+       }
+     }else if(!video.paused){
+       video.pause();
+     }
+   }
+ },{threshold:0.45});
+ playback.observe(video);
+})();

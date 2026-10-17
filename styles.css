@@ -167,3 +167,30 @@ body{padding-top:34px;padding-bottom:0}
  .bonus-gallery{gap:7px}
  .bonus-gallery img{border-radius:13px;box-shadow:0 4px 12px #24164311}
 }
+
+
+/* Secção de vídeo demonstrativo após as ofertas */
+.demonstration-section{background:#f8f5fd;text-align:center;padding-top:57px;padding-bottom:57px}
+.demo-wrap{max-width:850px}
+.demonstration-section h2{font-size:clamp(1.85rem,4vw,2.85rem);font-weight:900;letter-spacing:-.04em;line-height:1.15;max-width:760px;margin:0 auto 28px}
+.demo-video-frame{width:min(100%,350px);margin:0 auto;border-radius:23px;overflow:hidden;background:#201536;box-shadow:0 18px 50px #28184139;border:4px solid #fff}
+.demo-video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:#201536}
+.demo-noscript{margin-top:15px}
+.guarantee-seven{max-width:830px;display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;gap:20px;padding:30px;background:#eaf8f0;border:1px solid #cfebda}
+.guarantee-seven .guarantee-icon{display:grid;place-items:center;width:66px;height:66px;background:#d2f3df;border-radius:18px;font-size:2.3rem}
+.guarantee-seven .guarantee-copy{min-width:0}
+.guarantee-seven h2{font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;letter-spacing:-.025em;margin:12px 0 10px}
+.guarantee-seven p{color:#3d5e48;line-height:1.55;font-size:1rem}
+.guarantee-action{display:flex;justify-content:center;margin:27px auto 0}
+.guarantee-action .btn{width:auto;max-width:100%;min-width:290px}
+@media(max-width:720px){
+  .demonstration-section{padding-top:44px;padding-bottom:45px}
+  .demonstration-section h2{max-width:450px;font-size:clamp(1.85rem,7vw,2.3rem);margin-bottom:22px}
+  .demo-video-frame{width:min(100%,345px);border-width:3px;border-radius:19px}
+  .guarantee-seven{grid-template-columns:minmax(0,1fr);text-align:center;justify-items:center;gap:10px;padding:27px 20px;border-radius:20px}
+  .guarantee-seven .guarantee-icon{width:62px;height:62px;font-size:2.15rem}
+  .guarantee-seven h2{font-size:1.65rem}
+  .guarantee-seven p{font-size:.95rem}
+  .guarantee-action{margin-top:22px}
+  .guarantee-action .btn{width:100%;min-width:0}
+}

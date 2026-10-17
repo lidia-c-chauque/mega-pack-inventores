@@ -7,8 +7,8 @@
 <meta name="description" content="Mega Pack de Inventores: projetos de ciência e robótica para fazer em casa, com materiais acessíveis e instruções passo a passo.">
 <title>Mega Pack de Inventores | Ciência e Robótica para Crianças</title>
 <link rel="preload" as="image" href="assets/hero-mega-pack.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261017-bonus-v1">
-<script src="script.js?v=20261016-banner-2" defer></script>
+<link rel="stylesheet" href="styles.css?v=20261017-demonstracao">
+<script src="script.js?v=20261017-demonstracao" defer></script>
 </head>
 <body>
 <div class="daily-offer-bar" role="status" aria-label="A oferta termina hoje"><span>A oferta termina hoje, dia <time id="offer-current-date"></time></span></div>
@@ -188,13 +188,35 @@
     </div>
   </section>
 
-  <!-- 09. PAGAMENTO -->
-  <section class="section guarantee-section" id="garantia" aria-labelledby="guarantee-title">
-    <div class="wrap"><div class="guarantee-box"><div class="guarantee-icon" aria-hidden="true">🔒</div>
-      <div><span class="eyebrow eyebrow-green">PAGAMENTO PELA HOTMART</span><h2 id="guarantee-title">Escolha com tranquilidade</h2>
-        <p>Ao escolher um kit, você será direcionado para a Hotmart, onde poderá consultar o valor final, as formas de pagamento e as condições aplicáveis à compra antes de finalizar o pedido.</p>
+  <!-- 09. DEMONSTRAÇÃO DO PRODUTO -->
+  <section class="section demonstration-section" id="demonstracao" aria-labelledby="demo-title">
+    <div class="wrap demo-wrap">
+      <h2 id="demo-title">Veja o que seu filho é capaz de construir <span class="purple">com as próprias mãos!</span></h2>
+      <div class="demo-video-frame">
+        <video id="demo-video" class="demo-video" controls muted playsinline preload="none" poster="assets/video-projetos-capa.jpg" width="360" height="640" aria-label="Vídeo demonstrativo de um projeto do Mega Pack de Inventores">
+          <source data-src="assets/video-projetos-demo.mp4" type="video/mp4">
+          Seu navegador não suporta reprodução de vídeo.
+        </video>
       </div>
-    </div></div>
+      <noscript><p class="demo-noscript"><a href="assets/video-projetos-demo.mp4">Assistir ao vídeo demonstrativo</a></p></noscript>
+    </div>
+  </section>
+
+  <!-- 10. GARANTIA DE 7 DIAS -->
+  <section class="section guarantee-section" id="garantia" aria-labelledby="guarantee-title">
+    <div class="wrap">
+      <div class="guarantee-box guarantee-seven">
+        <div class="guarantee-icon" aria-hidden="true">🛡️</div>
+        <div class="guarantee-copy">
+          <span class="eyebrow eyebrow-green">7 DIAS DE GARANTIA</span>
+          <h2 id="guarantee-title">Sua compra com mais tranquilidade</h2>
+          <p>Você tem até 7 dias após a compra para solicitar reembolso, conforme as condições informadas no checkout da Hotmart.</p>
+        </div>
+      </div>
+      <div class="guarantee-action">
+        <a class="btn btn-primary btn-big" href="#kits">QUERO ESCOLHER MEU KIT <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
   </section>
 
   <!-- 10. FAQ -->
