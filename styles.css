@@ -194,3 +194,48 @@ body{padding-top:34px;padding-bottom:0}
   .guarantee-action{margin-top:22px}
   .guarantee-action .btn{width:100%;min-width:0}
 }
+
+
+
+/* DEPOIMENTOS: carrossel de conversas, responsivo e sem fotografias dos contactos */
+.testimonials-section{background:linear-gradient(180deg,#faf9fe 0%,#f3effc 100%);overflow:hidden}
+.proof-heading{text-align:center;max-width:880px;margin:0 auto 24px}
+.proof-heading h2{margin:14px 0 0;font-size:clamp(2rem,4.6vw,3.45rem);line-height:1.08;letter-spacing:-.035em;color:#24143f}
+.proof-carousel{--proof-gap:18px;max-width:990px;margin:0 auto}
+.proof-carousel-window{width:100%;overflow:hidden;padding:9px 5px 20px}
+.proof-carousel-track{display:flex;align-items:stretch;gap:var(--proof-gap);transition:transform 620ms cubic-bezier(.25,.8,.25,1);will-change:transform}
+.proof-slide{flex:0 0 calc((100% - var(--proof-gap)) / 2);box-sizing:border-box;min-width:0;background:#fff;border:1px solid #eae4f5;border-radius:22px;padding:15px;box-shadow:0 10px 24px #35225412;display:flex;flex-direction:column;gap:13px}
+.proof-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.proof-card-kicker{font-size:.73rem;letter-spacing:.08em;font-weight:900;color:#6543a1;background:#f1ebfb;padding:6px 10px;border-radius:99px}
+.proof-card-topic{font-size:.88rem;color:#43345e;font-weight:750}
+.proof-image-link{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-height:0;height:515px;border-radius:15px;overflow:hidden;background:#f5f1e9;text-decoration:none;cursor:zoom-in}
+.proof-image-link img{display:block;max-height:515px;max-width:100%;height:auto;width:auto;object-fit:contain}
+.proof-zoom{position:absolute;bottom:10px;right:10px;background:#fffefaed;color:#38264f;border:1px solid #e7e2eb;border-radius:99px;box-shadow:0 3px 12px #26143f17;padding:7px 11px;font-size:.73rem;font-weight:800}
+.proof-image-link:focus-visible,.proof-arrow:focus-visible,.proof-dot:focus-visible{outline:3px solid #783fd8;outline-offset:3px}
+.proof-controls{display:flex;justify-content:center;align-items:center;gap:16px;margin:5px auto 0}
+.proof-arrow{border:1px solid #ded3f0;border-radius:50%;background:#fff;color:#4e2886;display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;font-size:2rem;line-height:1;cursor:pointer;box-shadow:0 3px 12px #23133e0f}
+.proof-arrow:hover{background:#eee6fa}
+.proof-dots{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
+.proof-dot{padding:0;border:0;border-radius:99px;cursor:pointer;background:#cfc4df;width:9px;height:9px;transition:width 250ms ease,background 250ms ease}
+.proof-dot.is-active{width:26px;background:#6f37bb}
+@media(max-width:720px){
+ .testimonials-section{padding-top:48px;padding-bottom:45px}
+ .proof-heading{margin-bottom:18px}
+ .proof-heading h2{font-size:clamp(1.85rem,7.2vw,2.65rem)}
+ .proof-carousel{--proof-gap:12px}
+ .proof-carousel-window{padding:7px 3px 15px}
+ .proof-slide{flex-basis:100%;padding:12px;border-radius:17px;gap:10px}
+ .proof-card-topic{font-size:.82rem}
+ .proof-image-link{height:460px;border-radius:12px}
+ .proof-image-link img{max-height:460px}
+ .proof-controls{gap:11px}
+ .proof-arrow{height:39px;width:39px;flex-basis:39px}
+}
+@media(max-width:380px){
+ .proof-image-link{height:415px}
+ .proof-image-link img{max-height:415px}
+ .proof-card-topic{font-size:.76rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .proof-carousel-track,.proof-dot{transition:none!important}
+}
