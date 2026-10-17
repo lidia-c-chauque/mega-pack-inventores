@@ -239,3 +239,26 @@ body{padding-top:34px;padding-bottom:0}
 @media(prefers-reduced-motion:reduce){
  .proof-carousel-track,.proof-dot{transition:none!important}
 }
+
+
+/* Galeria do kit: avanço suave e área de deslize touch-friendly. */
+.gallery-section .carousel-window{touch-action:pan-y;overscroll-behavior-inline:contain}
+.gallery-section .carousel-track{transition:transform 1050ms cubic-bezier(.35,.05,.23,1)}
+.gallery-section .carousel-btn,.gallery-section .dot{cursor:pointer}
+.gallery-section .carousel-window:focus-visible{outline:3px solid #6539d7;outline-offset:3px}
+
+/* Depoimentos: utilizar as imagens INTEIRAS, sem recorte, sem altura máxima. */
+.testimonials-section .proof-carousel{max-width:1100px;--proof-gap:16px}
+.testimonials-section .proof-carousel-window{padding:4px 3px 8px;overflow:hidden;touch-action:pan-y;transition:height 650ms ease}
+.testimonials-section .proof-carousel-track{align-items:flex-start;transition:transform 1100ms cubic-bezier(.35,.05,.23,1)}
+.testimonials-section .proof-slide{display:block;flex:0 0 calc((100% - var(--proof-gap)) / 2);margin:0;padding:0;min-width:0;border:1px solid #ebe6f2;border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 7px 19px #35225413}
+.testimonials-section .proof-slide img{display:block;width:100%;height:auto;max-width:100%;max-height:none;object-fit:initial;border:0}
+.testimonials-section .proof-controls{margin-top:14px}
+@media(max-width:720px){
+  .testimonials-section .proof-carousel{--proof-gap:12px}
+  .testimonials-section .proof-slide{flex-basis:100%;border-radius:14px}
+  .testimonials-section .proof-carousel-window{padding:3px 2px 8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .gallery-section .carousel-track,.testimonials-section .proof-carousel-track,.testimonials-section .proof-carousel-window{transition:none!important}
+}
