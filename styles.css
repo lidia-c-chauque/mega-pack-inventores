@@ -262,3 +262,39 @@ body{padding-top:34px;padding-bottom:0}
 @media(prefers-reduced-motion:reduce){
   .gallery-section .carousel-track,.testimonials-section .proof-carousel-track,.testimonials-section .proof-carousel-window{transition:none!important}
 }
+
+
+/* MOMENTOS EM FAMÍLIA: fotografia natural, sequência automática e imagens completas. */
+.family-story-section{background:linear-gradient(180deg,#fffefb 0%,#f7f5fc 100%);overflow:hidden}
+.family-story-wrap{max-width:1120px}
+.family-story-heading{text-align:center;max-width:980px;margin:0 auto 30px}
+.family-story-heading h2{font-size:clamp(2rem,4.45vw,3.65rem);font-weight:850;line-height:1.1;letter-spacing:-.035em;color:#201637;margin:17px 0 14px}
+.family-story-heading .purple{color:#7535cc}
+.family-story-heading p{font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.5;max-width:810px;margin:0 auto;color:#62556c}
+.family-carousel{max-width:1020px;margin:0 auto;--family-gap:16px}
+.family-viewport{overflow:hidden;width:100%;padding:5px 3px 18px;touch-action:pan-y;outline:none}
+.family-track{display:flex;align-items:stretch;gap:var(--family-gap);transition:transform 920ms cubic-bezier(.25,.72,.25,1);will-change:transform}
+.family-scene{flex:0 0 calc((100% - var(--family-gap)) / 2);min-width:0;margin:0;padding:0;border-radius:20px;overflow:hidden;background:#f1eff0;border:1px solid #eee8ef;box-shadow:0 10px 25px #2a164010}
+.family-photo{display:flex;align-items:center;justify-content:center;height:435px;width:100%;overflow:hidden;background:#ece9e7}
+.family-photo img{display:block;width:100%;height:100%;object-fit:contain;max-width:100%}
+.family-carousel-controls{display:flex;justify-content:center;align-items:center;gap:17px;margin:3px auto 0}
+.family-arrow{cursor:pointer;width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;background:#fff;border:1px solid #e1d5f1;border-radius:50%;font-size:2rem;color:#6931bc;box-shadow:0 4px 13px #29143d13;line-height:1}
+.family-arrow:hover{background:#f0e9fc}
+.family-dots{display:flex;align-items:center;justify-content:center;gap:8px}
+.family-dot{cursor:pointer;display:block;border:0;border-radius:999px;width:9px;height:9px;padding:0;background:#d5cade;transition:width .25s ease,background .25s ease}
+.family-dot.is-active{width:25px;background:#7131cc}
+.family-illustrative-note{font-size:.74rem;line-height:1.4;color:#8b8093;text-align:center;margin:12px auto 0}
+.family-arrow:focus-visible,.family-dot:focus-visible,.family-viewport:focus-visible{outline:3px solid #7942d5;outline-offset:3px}
+@media(max-width:720px){
+ .family-story-section{padding-top:46px;padding-bottom:45px}
+ .family-story-heading{margin-bottom:20px}
+ .family-story-heading h2{font-size:clamp(1.9rem,7.9vw,2.55rem);line-height:1.12}
+ .family-story-heading p{font-size:1rem}
+ .family-carousel{--family-gap:12px}
+ .family-viewport{padding:4px 2px 16px}
+ .family-scene{flex-basis:100%;border-radius:15px}
+ .family-photo{height:auto;aspect-ratio:4/5}
+ .family-carousel-controls{gap:12px}
+ .family-arrow{width:40px;height:40px;flex-basis:40px}
+}
+@media(prefers-reduced-motion:reduce){.family-track,.family-dot{transition:none!important}}

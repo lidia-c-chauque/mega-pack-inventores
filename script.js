@@ -244,3 +244,104 @@
  }
  draw(false);autoplay();
 })();
+
+
+/* Fotografias de família: deslize manual e avanço automático quando visível. */
+(()=>{
+ const root=document.querySelector('[data-family-carousel]');
+ if(!root)return;
+ const track=root.querySelector('[data-family-track]');
+ const viewport=root.querySelector('[data-family-viewport]');
+ const slides=[...root.querySelectorAll('[data-family-slide]')];
+ const dots=[...root.querySelectorAll('[data-family-dot]')];
+ const prev=root.querySelector('[data-family-previous]');
+ const next=root.querySelector('[data-family-next]');
+ const total=slides.length;
+ if(total<2||!track||!viewport)return;
+ slides.slice(0,2).forEach(slide=>{
+   const copy=slide.cloneNode(true);
+   copy.removeAttribute('data-family-slide');
+   copy.setAttribute('aria-hidden','true');
+   copy.querySelector('img')?.setAttribute('loading','lazy');
+   track.appendChild(copy);
+ });
+ const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches===true;
+ let current=0,timer=null,transitioning=false,inView=!('IntersectionObserver' in window);
+ let hover=false,focused=false,startPoint=null;
+ const interval=7000;
+ const distance=()=>slides[0].getBoundingClientRect().width+(parseFloat(getComputedStyle(track).gap)||0);
+ const update=(animated=true)=>{
+   track.style.transition=animated&&!reduced?'transform 920ms cubic-bezier(.25,.72,.25,1)':'none';
+   track.style.transform='translate3d('+(-current*distance())+'px,0,0)';
+   const active=current%total;
+   dots.forEach((dot,i)=>{
+     dot.classList.toggle('is-active',i===active);
+     if(i===active)dot.setAttribute('aria-current','true');
+     else dot.removeAttribute('aria-current');
+   });
+ };
+ const stop=()=>{if(timer!==null){clearInterval(timer);timer=null;}};
+ const go=delta=>{
+   if(transitioning)return;
+   if(delta<0&&current===0){
+     current=total;update(false);
+     requestAnimationFrame(()=>requestAnimationFrame(()=>{
+       current=total-1;transitioning=!reduced;update(true);
+     }));
+     return;
+   }
+   current+=delta;
+   transitioning=!reduced;
+   update(true);
+   if(reduced&&current>=total){current=0;update(false);}
+ };
+ const run=()=>{
+   stop();
+   if(reduced||!inView||document.hidden||hover||focused||startPoint)return;
+   timer=setInterval(()=>go(1),interval);
+ };
+ track.addEventListener('transitionend',event=>{
+   if(event.target!==track||event.propertyName!=='transform')return;
+   transitioning=false;
+   if(current>=total){current=0;update(false);}
+ });
+ prev?.addEventListener('click',()=>{go(-1);run();});
+ next?.addEventListener('click',()=>{go(1);run();});
+ dots.forEach((dot,i)=>dot.addEventListener('click',()=>{
+   if(transitioning||current%total===i)return;
+   current=i;transitioning=!reduced;update(true);run();
+ }));
+ viewport.addEventListener('touchstart',event=>{
+   startPoint={x:event.changedTouches[0].clientX,y:event.changedTouches[0].clientY};
+   stop();
+ },{passive:true});
+ viewport.addEventListener('touchend',event=>{
+   if(startPoint){
+     const dx=event.changedTouches[0].clientX-startPoint.x;
+     const dy=event.changedTouches[0].clientY-startPoint.y;
+     startPoint=null;
+     if(Math.abs(dx)>42&&Math.abs(dx)>Math.abs(dy)*1.2)go(dx<0?1:-1);
+   }
+   run();
+ },{passive:true});
+ viewport.addEventListener('touchcancel',()=>{startPoint=null;run();},{passive:true});
+ viewport.addEventListener('keydown',event=>{
+   if(event.key==='ArrowRight'){event.preventDefault();go(1);run();}
+   if(event.key==='ArrowLeft'){event.preventDefault();go(-1);run();}
+ });
+ root.addEventListener('mouseenter',()=>{hover=true;stop();});
+ root.addEventListener('mouseleave',()=>{hover=false;run();});
+ root.addEventListener('focusin',()=>{focused=true;stop();});
+ root.addEventListener('focusout',event=>{
+   if(!root.contains(event.relatedTarget)){focused=false;run();}
+ });
+ window.addEventListener('resize',()=>update(false),{passive:true});
+ document.addEventListener('visibilitychange',run);
+ if('IntersectionObserver' in window){
+   new IntersectionObserver(entries=>{
+     inView=entries.some(e=>e.isIntersecting);
+     run();
+   },{threshold:0.15}).observe(root);
+ }
+ update(false);run();
+})();
