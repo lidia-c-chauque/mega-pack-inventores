@@ -94,11 +94,30 @@
    dateNode.textContent=label;
    dateNode.dateTime=pieces.year+'-'+pieces.month+'-'+pieces.day;
  };
- refreshDate();
- setInterval(refreshDate,30000);
- document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshDate()});
- window.addEventListener('focus',refreshDate);
- window.addEventListener('pageshow',refreshDate);
+ // O relógio do visitante não altera o dia: a data vem sempre de São Paulo.
+ const saoPauloClock=new Intl.DateTimeFormat('en-GB',{
+   timeZone,hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'
+ });
+ let midnightTimer;
+ const scheduleNextDay=()=>{
+   if(midnightTimer)clearTimeout(midnightTimer);
+   const parts=Object.fromEntries(
+     saoPauloClock.formatToParts(new Date())
+       .filter(part=>part.type==='hour'||part.type==='minute'||part.type==='second')
+       .map(part=>[part.type,Number(part.value)])
+   );
+   const secondsNow=(parts.hour||0)*3600+(parts.minute||0)*60+(parts.second||0);
+   const untilNextMidnight=(86400-secondsNow)*1000+1500;
+   midnightTimer=setTimeout(()=>{
+     refreshDate();
+     scheduleNextDay();
+   },untilNextMidnight);
+ };
+ const syncDate=()=>{refreshDate();scheduleNextDay();};
+ syncDate();
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncDate()});
+ window.addEventListener('focus',syncDate);
+ window.addEventListener('pageshow',syncDate);
 })();
 
 
