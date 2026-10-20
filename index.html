@@ -7,7 +7,9 @@
 <meta name="description" content="Mega Pack de Inventores: projetos de ciência e robótica para fazer em casa, com materiais acessíveis e instruções passo a passo.">
 <title>Mega Pack de Inventores | Ciência e Robótica para Crianças</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/hero-mega-pack-otimizado.webp" fetchpriority="high">
+<!-- Carregue apenas o mockup adequado ao ecrã: móvel ~71 KB, desktop ~129 KB. -->
+<link rel="preload" as="image" type="image/webp" href="assets/hero-mega-pack-mobile-800.webp" media="(max-width: 720px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="assets/hero-mega-pack-otimizado.webp" media="(min-width: 721px)" fetchpriority="high">
 <link rel="stylesheet" href="styles.css?v=20261018-familia">
 <script src="script.js?v=20261018-pixel-fuso-perf" defer></script>
 <!-- Meta Pixel Code -->
@@ -47,7 +49,7 @@ src="https://www.facebook.com/tr?id=2497983244044685&amp;ev=PageView&amp;noscrip
       <span class="eyebrow eyebrow-hero">+200 PROJETOS DE CIÊNCIA E ROBÓTICA</span>
       <h1 id="hero-title">Seu filho vai <span class="highlight-yellow">deixar a tela de lado</span> e construir seu <span class="purple">primeiro robô</span> com as próprias mãos <span class="purple">ainda hoje!</span></h1>
       <p class="hero-lead">Descubra mais de 200 projetos para fazer em casa, com instruções passo a passo e materiais acessíveis. Uma forma divertida de estimular a criatividade, despertar a curiosidade e aprender na prática.</p>
-      <figure class="hero-visual"><img src="assets/hero-mega-pack-otimizado.webp" width="1360" height="765" alt="Mega Pack de Inventores com materiais de apoio e exemplos de projetos exibidos no computador, tablet e celular" fetchpriority="high" decoding="async"><figcaption class="sr-only">Imagem ilustrativa da apresentação digital dos materiais</figcaption></figure>
+      <figure class="hero-visual"><picture><source media="(max-width: 720px)" srcset="assets/hero-mega-pack-mobile-800.webp" type="image/webp" width="800" height="450"><img src="assets/hero-mega-pack-otimizado.webp" width="1360" height="765" alt="Mega Pack de Inventores com materiais de apoio e exemplos de projetos exibidos no computador, tablet e celular" loading="eager" fetchpriority="high" decoding="async"></picture><figcaption class="sr-only">Imagem ilustrativa da apresentação digital dos materiais</figcaption></figure>
       <div class="hero-actions">
         <a class="btn btn-primary btn-big" href="#kits">QUERO ESCOLHER MEU KIT <span aria-hidden="true">→</span></a>
         <div class="trust-row"><span><b aria-hidden="true">✓</b>Acesso imediato</span><span><b aria-hidden="true">✓</b>Acesso vitalício</span><span><b aria-hidden="true">✓</b>Projetos passo a passo</span></div>
