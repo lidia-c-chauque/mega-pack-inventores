@@ -26,9 +26,9 @@ body{padding-top:34px;padding-bottom:0}
 @media(max-width:360px){.daily-offer-bar{font-size:11px;padding-inline:8px}}
 @media(display-mode:standalone){body{padding-top:calc(34px + env(safe-area-inset-top))}.daily-offer-bar{padding-top:calc(6px + env(safe-area-inset-top))}}</style>
 <!-- CSS restante assíncrono, sem bloquear a renderização inicial -->
-<link rel="stylesheet" href="styles.css?v=20261018-familia" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="styles.css?v=20261018-familia"></noscript>
-<script src="script.js?v=20261018-pixel-fuso-perf" defer></script>
+<link rel="stylesheet" href="styles.css?v=20261102-dual-marquee" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="styles.css?v=20261102-dual-marquee"></noscript>
+<script src="script.js?v=20261102-dual-marquee" defer></script>
 <!-- South African analytics not configured: Brazilian Meta Pixel and UTMify deliberately excluded. -->
 </head>
 <body>
@@ -56,19 +56,14 @@ body{padding-top:34px;padding-bottom:0}
   <section class="section gallery-section" id="galeria" aria-labelledby="gallery-title">
     <div class="wrap narrow-title"><span class="eyebrow eyebrow-yellow">A LOOK INSIDE</span><h2 id="gallery-title">See what you can <span class="purple">create and explore</span></h2><p class="section-lead">Explore sample projects with pictures, materials lists and easy-to-follow visual instructions.</p></div>
     <div class="wrap">
-      <div class="carousel-shell" role="region" aria-label="Preview of the project collection" aria-roledescription="carrossel">
-        <button class="carousel-btn prev" type="button" aria-label="Previous page">‹</button>
-        <div class="carousel-window" id="carousel-window" tabindex="0"><div class="carousel-track" id="carousel-track">
-          <figure class="slide"><img loading="lazy" fetchpriority="low" decoding="async" src="assets/galeria-nova-01.webp" alt="Overview of the science and robotics projects" width="760" height="1157"><figcaption>Project overview</figcaption></figure>
-          <figure class="slide"><img loading="lazy" fetchpriority="low" decoding="async" src="assets/galeria-nova-02.webp" alt="Suggested activities organised by age" width="760" height="1157"><figcaption>Age-based activities</figcaption></figure>
-          <figure class="slide"><img loading="lazy" fetchpriority="low" decoding="async" src="assets/galeria-nova-03.webp" alt="Cardboard robotic hand" width="760" height="1157"><figcaption>Robotic hand</figcaption></figure>
-          <figure class="slide"><img loading="lazy" fetchpriority="low" decoding="async" src="assets/galeria-nova-04.webp" alt="Illustrated gripping robot project" width="760" height="1157"><figcaption>Gripper robot</figcaption></figure>
-          <figure class="slide"><img loading="lazy" fetchpriority="low" decoding="async" src="assets/galeria-nova-05.webp" alt="Materials and instructions for a model electric car" width="760" height="1157"><figcaption>Electric car</figcaption></figure>
-          <figure class="slide"><img loading="lazy" fetchpriority="low" decoding="async" src="assets/galeria-nova-06.webp" alt="Cardboard hydraulic crane" width="760" height="1157"><figcaption>Hydraulic crane</figcaption></figure>
-        </div></div>
-        <button class="carousel-btn next" type="button" aria-label="Next page">›</button>
+      <div class="dual-marquee dual-projects" aria-label="Continuous visual gallery of six project examples">
+<div class="dual-marquee-row " aria-label="Science and robotics projects"><div class="dual-marquee-track"><div class="dual-marquee-group"><figure class="dual-marquee-card project-card"><img src="assets/galeria-nova-01.webp" alt="Project overview" loading="lazy" decoding="async" width="760" height="1157"></figure>
+<figure class="dual-marquee-card project-card"><img src="assets/galeria-nova-02.webp" alt="Age-based activities" loading="lazy" decoding="async" width="760" height="1157"></figure>
+<figure class="dual-marquee-card project-card"><img src="assets/galeria-nova-03.webp" alt="Robotic hand" loading="lazy" decoding="async" width="760" height="1157"></figure></div></div></div>
+<div class="dual-marquee-row is-reverse" aria-label="Science and robotics projects"><div class="dual-marquee-track"><div class="dual-marquee-group"><figure class="dual-marquee-card project-card"><img src="assets/galeria-nova-04.webp" alt="Gripper robot" loading="lazy" decoding="async" width="760" height="1157"></figure>
+<figure class="dual-marquee-card project-card"><img src="assets/galeria-nova-05.webp" alt="Electric car" loading="lazy" decoding="async" width="760" height="1157"></figure>
+<figure class="dual-marquee-card project-card"><img src="assets/galeria-nova-06.webp" alt="Hydraulic crane" loading="lazy" decoding="async" width="760" height="1157"></figure></div></div></div>
       </div>
-      <div class="dots" aria-label="Ir para uma página do carrossel"><button class="dot active" type="button" aria-label="View page 1" aria-current="true"></button><button class="dot" type="button" aria-label="View page 2"></button><button class="dot" type="button" aria-label="View page 3"></button><button class="dot" type="button" aria-label="View page 4"></button><button class="dot" type="button" aria-label="View page 5"></button><button class="dot" type="button" aria-label="View page 6"></button></div>
       <div class="steps-grid">
         <article class="step-card step-lilac"><div class="step-icon">⚙️</div><div><h3><span>1</span> Build</h3><p>Follow visual steps with materials, numbered stages and guidance for adults.</p></div></article>
         <article class="step-card step-gold"><div class="step-icon">💡</div><div><h3><span>2</span> Understand</h3><p>Explore the science behind each project: levers, circuits, hydraulics and air.</p></div></article>
@@ -191,44 +186,18 @@ body{padding-top:34px;padding-bottom:0}
     </div>
   </section>
 
-  <!-- 07. DEPOIMENTOS -->
-  <section hidden class="section social-section testimonials-section" id="depoimentos" aria-labelledby="social-title">
-    <div class="wrap">
-      <div class="proof-heading"><span class="eyebrow eyebrow-green">LOCAL REVIEWS IN PREPARATION</span><h2 id="social-title">We are preparing <span class="purple">localised customer feedback.</span></h2><p>Original-language messages are not presented as South African testimonials.</p></div><div class="proof-carousel" data-proof-carousel role="region" aria-roledescription="carrossel" aria-label="Feedback about the science and robotics projects">
-        <div class="proof-carousel-window" data-proof-window>
-          <div class="proof-carousel-track" data-proof-track>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-01.webp" width="853" height="1844" alt="Captura integral da conversa sobre trocar o tablet por atividades de construção" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-02.webp" width="941" height="1672" alt="Captura integral da conversa sobre o neto feliz ao montar um robô" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-03.webp" width="995" height="1581" alt="Captura integral da conversa sobre o carro, o braço hidráulico e o barco" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-04.webp" width="941" height="1672" alt="Captura integral da conversa sobre montar um vulcão e experimentar um foguete" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-05.webp" width="941" height="1672" alt="Captura integral da conversa sobre projetos de robótica com a neta" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-06.webp" width="1024" height="1536" alt="Captura integral da conversa sobre experiências de robótica feitas em família" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-07.webp" width="941" height="1672" alt="Captura integral da conversa sobre os sobrinhos ansiosos pelo próximo projeto" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-            <figure class="proof-slide" data-proof-slide>
-              <img src="assets/depoimento-integral-08.webp" width="954" height="1649" alt="Captura integral da conversa sobre a utilidade dos projetos de robótica" loading="lazy" fetchpriority="low" decoding="async">
-            </figure>
-          </div>
-        </div>
-        <div class="proof-controls">
-          <button type="button" class="proof-arrow" data-proof-prev aria-label="Previous conversation">‹</button>
-          <div class="proof-dots" aria-label="Choose conversation"><button class="proof-dot is-active" type="button" data-proof-dot="0" aria-label="View conversation 1" aria-current="true"></button><button class="proof-dot" type="button" data-proof-dot="1" aria-label="View conversation 2"></button><button class="proof-dot" type="button" data-proof-dot="2" aria-label="View conversation 3"></button><button class="proof-dot" type="button" data-proof-dot="3" aria-label="View conversation 4"></button><button class="proof-dot" type="button" data-proof-dot="4" aria-label="View conversation 5"></button><button class="proof-dot" type="button" data-proof-dot="5" aria-label="View conversation 6"></button><button class="proof-dot" type="button" data-proof-dot="6" aria-label="View conversation 7"></button><button class="proof-dot" type="button" data-proof-dot="7" aria-label="View conversation 8"></button></div>
-          <button type="button" class="proof-arrow" data-proof-next aria-label="Next conversation">›</button>
-        </div>
-      </div>
+  <!-- 07. CUSTOMER MESSAGES: original language, no local attribution -->
+  <section class="section testimonials-section dual-proof-section" id="depoimentos" aria-labelledby="social-title">
+    <div class="wrap section-intro"><span class="eyebrow eyebrow-green">SHARED EXPERIENCES</span><h2 id="social-title">See what families <span class="purple">are sharing</span></h2><p>Messages shown in their original Portuguese. These are not presented as South African customer reviews.</p></div>
+    <div class="dual-marquee dual-testimonials" aria-label="Original-language customer feedback screenshots">
+<div class="dual-marquee-row " aria-label="Customer messages in original Portuguese"><div class="dual-marquee-track"><div class="dual-marquee-group"><figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-01.webp" alt="Original Portuguese-language feedback screenshot 1" loading="lazy" decoding="async" width="950" height="1672"></figure>
+<figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-02.webp" alt="Original Portuguese-language feedback screenshot 2" loading="lazy" decoding="async" width="950" height="1672"></figure>
+<figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-03.webp" alt="Original Portuguese-language feedback screenshot 3" loading="lazy" decoding="async" width="950" height="1672"></figure>
+<figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-04.webp" alt="Original Portuguese-language feedback screenshot 4" loading="lazy" decoding="async" width="950" height="1672"></figure></div></div></div>
+<div class="dual-marquee-row is-reverse" aria-label="Customer messages in original Portuguese"><div class="dual-marquee-track"><div class="dual-marquee-group"><figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-05.webp" alt="Original Portuguese-language feedback screenshot 5" loading="lazy" decoding="async" width="950" height="1672"></figure>
+<figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-06.webp" alt="Original Portuguese-language feedback screenshot 6" loading="lazy" decoding="async" width="950" height="1672"></figure>
+<figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-07.webp" alt="Original Portuguese-language feedback screenshot 7" loading="lazy" decoding="async" width="950" height="1672"></figure>
+<figure class="dual-marquee-card proof-card"><img src="assets/depoimento-integral-08.webp" alt="Original Portuguese-language feedback screenshot 8" loading="lazy" decoding="async" width="950" height="1672"></figure></div></div></div>
     </div>
   </section>
 
