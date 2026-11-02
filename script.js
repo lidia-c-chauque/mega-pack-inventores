@@ -364,3 +364,6 @@
  }
  update(false);run();
 })();
+
+/* Seamless marquee: clone complete row group once. */
+(()=>{for(const track of document.querySelectorAll('.dual-marquee-track')){const group=track.querySelector('.dual-marquee-group');if(!group||track.children.length>1)continue;const copy=group.cloneNode(true);copy.setAttribute('aria-hidden','true');copy.querySelectorAll('img').forEach(img=>{img.setAttribute('alt','');img.setAttribute('loading','lazy')});track.appendChild(copy)}})();
