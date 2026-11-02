@@ -1,0 +1,59 @@
+name: Validate sales page
+
+on:
+  pull_request:
+    branches: [young-inventors-za]
+  push:
+    branches: [development]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-static-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout reviewed source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Check local HTML, CSS and JavaScript references
+        run: |
+          python3 - <<'PY'
+          import pathlib, re, sys
+          root = pathlib.Path(".")
+          html_files = list(root.glob("*.html"))
+          if not html_files:
+              print("ERROR: no root HTML page found")
+              sys.exit(1)
+          errors = []
+          refs = []
+          for html in html_files:
+              text = html.read_text(encoding="utf-8")
+              refs += [(html, x) for x in re.findall(r'''(?:src|href)=["']([^"'#?]+)''', text, re.I)]
+          for css in root.rglob("*.css"):
+              if ".git" in css.parts:
+                  continue
+              text = css.read_text(encoding="utf-8")
+              refs += [(css, x) for x in re.findall(r'''url\(["']?([^"'\)]+)''', text, re.I)]
+          for source, ref in refs:
+              ref = ref.strip()
+              if not ref or ref.startswith(("http://", "https://", "//", "data:", "mailto:", "tel:", "javascript:")):
+                  continue
+              target = (source.parent / ref.split("?")[0]).resolve()
+              if not target.exists():
+                  errors.append(f"{source}: missing local reference: {ref}")
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+          print(f"PASS: checked {len(refs)} local references across {len(html_files)} HTML page(s).")
+          PY
+
+      - name: Check gallery assets
+        run: |
+          test -f assets/project-01.webp
+          test -f assets/project-18.webp
+          count=$(find assets -maxdepth 1 -type f -name 'project-*.webp' | wc -l)
+          echo "Found $count project WebP assets"
+          test "$count" -ge 18
