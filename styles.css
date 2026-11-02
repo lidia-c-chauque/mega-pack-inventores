@@ -323,8 +323,8 @@ body{padding-top:34px;padding-bottom:0}
 .learning-section .solution-heading{max-width:740px;margin-bottom:28px}
 .learning-section .solution-heading h2{margin-bottom:12px}
 .learning-section .solution-heading p{max-width:650px}
-.learning-banners{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1000px;margin:0 auto}
-.learning-banner{width:100%;margin:0;overflow:hidden;border-radius:16px;background:#17102a;box-shadow:0 5px 12px #21133818,0 16px 34px #21133820,0 1px 2px #fff9 inset;transform:translateZ(0);transition:box-shadow .2s ease,transform .2s ease}
+.learning-banners{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.learning-banner{width:100%;margin:0;overflow:hidden;border:1px solid #26163b18;border-radius:16px;background:#17102a;box-shadow:0 7px 16px #21133820,0 18px 38px #2113382b,0 2px 5px #21133812,0 1px 2px #fff9 inset;transform:translateZ(0);transition:box-shadow .2s ease,transform .2s ease}
 .learning-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;object-position:center;content-visibility:auto}
 @media(hover:hover){.learning-banner:hover{transform:translateY(-2px);box-shadow:0 8px 18px #21133820,0 20px 42px #21133828,0 1px 2px #fff9 inset}}
 .learning-section .solution-quote{max-width:700px;margin-top:22px}
@@ -335,10 +335,10 @@ body{padding-top:34px;padding-bottom:0}
 @media(hover:hover){.learning-cta:hover span{transform:translateX(4px)}}
 @media(prefers-reduced-motion:reduce){.learning-banner,.learning-cta span{transition:none}}
 @media(min-width:721px){
- .learning-banners{gap:18px}
+ .learning-banners{gap:30px}
  .learning-banner{border-radius:20px}
 }
 @media(max-width:480px){
- .learning-banners{gap:10px}
+ .learning-banners{gap:18px}
  .learning-banner{border-radius:11px}
 }
