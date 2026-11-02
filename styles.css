@@ -317,42 +317,21 @@ body{padding-top:34px;padding-bottom:0}
 @media(prefers-reduced-motion:reduce){.dual-marquee-track,.dual-marquee-row.is-reverse .dual-marquee-track{animation:none!important}.dual-marquee-row{overflow-x:auto;scrollbar-width:thin;mask-image:none;-webkit-mask-image:none}.dual-marquee-row .dual-marquee-group[aria-hidden=true]{display:none}}
 
 
-/* WHAT YOUR CHILD WILL LEARN — concise, mobile-first category banners */
+/* WHAT YOUR CHILD WILL LEARN — four original, full-width artwork banners */
 .learning-section{background:linear-gradient(180deg,#f8f6ff 0%,#fff 100%)}
-.learning-section .solution-wrap{max-width:940px}
-.learning-section .solution-heading{max-width:740px;margin-bottom:26px}
+.learning-section .solution-wrap{max-width:1040px}
+.learning-section .solution-heading{max-width:740px;margin-bottom:28px}
 .learning-section .solution-heading h2{margin-bottom:12px}
 .learning-section .solution-heading p{max-width:650px}
-.learning-categories{display:grid;gap:13px;max-width:850px;margin:0 auto}
-.learning-category{--category:#287fe8;--category-soft:#eaf3ff;display:grid;grid-template-columns:minmax(112px,34%) minmax(0,1fr);align-items:center;gap:15px;min-width:0;padding:12px;background:#fff;border:1px solid #e9e3f1;border-radius:18px;box-shadow:0 7px 22px #26163b0b;overflow:hidden}
-.learning-science{--category:#159b79;--category-soft:#e8f8f2}
-.learning-crafts{--category:#e88728;--category-soft:#fff3e5}
-.learning-logic{--category:#7650cb;--category-soft:#f1ebff}
-.learning-image{width:100%;aspect-ratio:1/1.05;overflow:hidden;border-radius:12px;background:var(--category-soft)}
-.learning-image img{width:100%;height:100%;object-fit:cover;object-position:center}
-.learning-copy{min-width:0;padding:3px 5px 3px 0}
-.learning-count{display:inline-block;color:var(--category);font-size:.68rem;font-weight:900;letter-spacing:.065em;line-height:1.2;margin-bottom:6px}
-.learning-copy h3{font-size:clamp(1.05rem,2.5vw,1.4rem);line-height:1.13;margin:0 0 7px;color:#251638;letter-spacing:-.025em}
-.learning-copy p{font-size:clamp(.82rem,1.6vw,.96rem);line-height:1.42;color:#5d5369;margin:0 0 10px}
-.learning-skills{display:flex;flex-wrap:wrap;gap:5px}
-.learning-skills span{font-size:.68rem;line-height:1.2;font-weight:750;color:var(--category);background:var(--category-soft);border-radius:30px;padding:5px 8px}
-.learning-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:850px;margin:18px auto 0}
-.learning-highlights>div{display:flex;flex-direction:column;justify-content:center;gap:3px;min-width:0;padding:13px 9px;text-align:center;border:1px solid #e9e2ef;background:#fff;border-radius:13px}
-.learning-highlights strong{font-size:clamp(.83rem,1.8vw,1.05rem);font-weight:900;color:#53339a;line-height:1.15}
-.learning-highlights span{font-size:.7rem;color:#6a6075;line-height:1.25}
-.learning-section .solution-quote{max-width:700px;margin-top:16px}
+.learning-banners{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1000px;margin:0 auto}
+.learning-banner{width:100%;margin:0;overflow:hidden;border-radius:16px;background:#17102a;box-shadow:0 8px 24px #26163b14}
+.learning-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;object-position:center}
+.learning-section .solution-quote{max-width:700px;margin-top:22px}
 @media(min-width:721px){
- .learning-categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
- .learning-category{grid-template-columns:36% minmax(0,1fr);min-height:190px;padding:14px}
- .learning-image{aspect-ratio:1/1}
- .learning-highlights{margin-top:22px}
+ .learning-banners{gap:18px}
+ .learning-banner{border-radius:20px}
 }
-@media(max-width:390px){
- .learning-category{grid-template-columns:104px minmax(0,1fr);gap:11px;padding:10px;border-radius:15px}
- .learning-copy h3{font-size:1rem}
- .learning-copy p{font-size:.78rem;line-height:1.35}
- .learning-skills span{font-size:.62rem;padding:4px 6px}
- .learning-highlights{gap:6px}
- .learning-highlights>div{padding:11px 5px}
- .learning-highlights span{font-size:.64rem}
+@media(max-width:480px){
+ .learning-banners{gap:10px}
+ .learning-banner{border-radius:11px}
 }
