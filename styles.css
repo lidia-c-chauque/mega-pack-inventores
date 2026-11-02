@@ -324,9 +324,16 @@ body{padding-top:34px;padding-bottom:0}
 .learning-section .solution-heading h2{margin-bottom:12px}
 .learning-section .solution-heading p{max-width:650px}
 .learning-banners{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1000px;margin:0 auto}
-.learning-banner{width:100%;margin:0;overflow:hidden;border-radius:16px;background:#17102a;box-shadow:0 8px 24px #26163b14}
-.learning-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;object-position:center}
+.learning-banner{width:100%;margin:0;overflow:hidden;border-radius:16px;background:#17102a;box-shadow:0 5px 12px #21133818,0 16px 34px #21133820,0 1px 2px #fff9 inset;transform:translateZ(0);transition:box-shadow .2s ease,transform .2s ease}
+.learning-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;object-position:center;content-visibility:auto}
+@media(hover:hover){.learning-banner:hover{transform:translateY(-2px);box-shadow:0 8px 18px #21133820,0 20px 42px #21133828,0 1px 2px #fff9 inset}}
 .learning-section .solution-quote{max-width:700px;margin-top:22px}
+.learning-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin:22px auto 0;padding:0 8px}
+.learning-cta{display:flex;align-items:center;justify-content:center;gap:12px;width:min(100%,440px);min-height:58px;border-radius:16px;text-align:center;box-shadow:0 5px 0 #d5a91d,0 12px 24px #31234824,0 0 0 1px #fff7 inset}
+.learning-cta span{font-size:1.35em;line-height:1;transition:transform .18s ease}
+.learning-cta-note{margin:0;color:#756c82;font-size:.76rem;line-height:1.4;text-align:center}
+@media(hover:hover){.learning-cta:hover span{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){.learning-banner,.learning-cta span{transition:none}}
 @media(min-width:721px){
  .learning-banners{gap:18px}
  .learning-banner{border-radius:20px}
