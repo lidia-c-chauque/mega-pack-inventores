@@ -298,3 +298,20 @@ body{padding-top:34px;padding-bottom:0}
  .family-arrow{width:40px;height:40px;flex-basis:40px}
 }
 @media(prefers-reduced-motion:reduce){.family-track,.family-dot{transition:none!important}}
+
+/* Continuous dual-row marquees — mobile-first */
+.dual-marquee{--marquee-gap:12px;display:grid;gap:12px;width:100%;overflow:hidden;overflow:clip}
+.dual-marquee-row{width:100%;min-width:0;overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent)}
+.dual-marquee-track{display:flex;width:max-content;will-change:transform;animation:dual-marquee-scroll 42s linear infinite}
+.dual-marquee-row.is-reverse .dual-marquee-track{animation-direction:reverse;animation-duration:39s}
+.dual-marquee-group{display:flex;align-items:stretch;flex:none;gap:var(--marquee-gap);padding-right:var(--marquee-gap)}
+.dual-marquee-card{flex:0 0 auto;margin:0;border:1px solid #e9e3f2;background:#fff;overflow:hidden;border-radius:14px;box-shadow:0 6px 20px #31224812}
+.dual-marquee-card img{display:block;width:100%;height:100%;object-fit:contain}
+.dual-projects .project-card{width:clamp(144px,43vw,240px);height:clamp(204px,59vw,315px)}
+.dual-testimonials .proof-card{width:clamp(150px,45vw,270px);height:clamp(260px,70vw,430px)}
+.dual-proof-section{background:linear-gradient(#faf9fe,#f4effc)}
+.dual-proof-section .section-intro{margin-bottom:28px}
+.dual-marquee-row:hover .dual-marquee-track,.dual-marquee-row:focus-within .dual-marquee-track{animation-play-state:paused}
+@keyframes dual-marquee-scroll{to{transform:translateX(-50%)}}
+@media(min-width:721px){.dual-marquee{--marquee-gap:18px;gap:18px}.dual-projects .project-card{width:235px;height:325px}.dual-testimonials .proof-card{width:258px;height:435px}}
+@media(prefers-reduced-motion:reduce){.dual-marquee-track,.dual-marquee-row.is-reverse .dual-marquee-track{animation:none!important}.dual-marquee-row{overflow-x:auto;scrollbar-width:thin;mask-image:none;-webkit-mask-image:none}.dual-marquee-row .dual-marquee-group[aria-hidden=true]{display:none}}
