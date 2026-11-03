@@ -369,27 +369,6 @@
 (()=>{for(const track of document.querySelectorAll('.dual-marquee-track')){const group=track.querySelector('.dual-marquee-group');if(!group||track.children.length>1)continue;const copy=group.cloneNode(true);copy.setAttribute('aria-hidden','true');copy.querySelectorAll('img').forEach(img=>{img.setAttribute('alt','');img.setAttribute('loading','lazy')});track.appendChild(copy)}})();
 
 
-/* Promotional countdown: starts fresh on every page load; no persistent storage. */
-(()=> {
-  const node=document.getElementById('offer-countdown');
-  if(!node)return;
-  let remaining=70*60;
-  const render=()=>{
-    const hours=String(Math.floor(remaining/3600)).padStart(2,'0');
-    const minutes=String(Math.floor((remaining%3600)/60)).padStart(2,'0');
-    const seconds=String(remaining%60).padStart(2,'0');
-    const value=hours+':'+minutes+':'+seconds;
-    node.textContent=value;
-    node.dateTime='PT'+hours+'H'+minutes+'M'+seconds+'S';
-  };
-  render();
-  const interval=window.setInterval(()=>{
-    if(remaining>0){remaining-=1;render();}
-    else{window.clearInterval(interval);}
-  },1000);
-  window.addEventListener('pagehide',()=>window.clearInterval(interval),{once:true});
-})();
-
 /* Pause decorative marquee animations while outside the viewport to reduce work. */
 (()=> {
   const rows=document.querySelectorAll('.dual-marquee');

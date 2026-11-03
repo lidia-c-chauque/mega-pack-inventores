@@ -28,7 +28,19 @@ body{padding-top:34px;padding-bottom:0}
 <!-- CSS restante assíncrono, sem bloquear a renderização inicial -->
 <link rel="stylesheet" href="styles.css?v=20261102-dual-marquee" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="styles.css?v=20261102-dual-marquee"></noscript>
-<script src="script.js?v=20261102-dual-marquee" defer></script>
+<!-- Carrega as interacções secundárias depois do carregamento principal e num período ocioso. -->
+<script>
+window.addEventListener('load',function(){
+  var loadInteractions=function(){
+    var script=document.createElement('script');
+    script.src='script.js?v=20261103-idle';
+    script.async=true;
+    document.body.appendChild(script);
+  };
+  if('requestIdleCallback' in window){requestIdleCallback(loadInteractions,{timeout:2500});}
+  else{setTimeout(loadInteractions,1200);}
+},{once:true});
+</script>
 <!-- UTMify tracking -->
 <script>
 window.pixelId = '6ae90c000a2072be25f5ae46';
@@ -61,6 +73,27 @@ src="https://www.facebook.com/tr?id=1095963653264427&ev=PageView&noscript=1"
 /></noscript>
 
 <div class="daily-offer-bar" role="timer" aria-label="Promotional countdown"><span>The offer ends in <time id="offer-countdown" aria-live="off">01:10:00</time></span></div>
+<script>
+/* Cronómetro essencial iniciado durante a leitura da barra; reinicia em cada nova visita. */
+(function(){
+  var node=document.getElementById('offer-countdown');
+  if(!node)return;
+  var remaining=70*60,intervalId;
+  function render(){
+    var h=String(Math.floor(remaining/3600)).padStart(2,'0');
+    var m=String(Math.floor((remaining%3600)/60)).padStart(2,'0');
+    var s=String(remaining%60).padStart(2,'0');
+    node.textContent=h+':'+m+':'+s;
+    node.dateTime='PT'+h+'H'+m+'M'+s+'S';
+  }
+  render();
+  intervalId=window.setInterval(function(){
+    if(remaining>0){remaining--;render();}
+    else{window.clearInterval(intervalId);}
+  },1000);
+  window.addEventListener('pagehide',function(){window.clearInterval(intervalId);},{once:true});
+})();
+</script>
 <a href="#conteudo" class="skip-link">Skip to content</a>
 <main id="conteudo">
   <!-- 01. HERO -->
