@@ -401,3 +401,9 @@ body{padding-top:34px;padding-bottom:0}
 .testimonials-section .proof-slide img{display:block;width:auto;max-width:100%;height:auto;max-height:520px;object-fit:contain;border:0;border-radius:12px;box-shadow:none;background:transparent}
 .testimonials-section .proof-controls{margin-top:16px}
 @media(max-width:720px){.testimonials-section .proof-carousel{max-width:440px;--proof-gap:12px}.testimonials-section .proof-slide img{max-height:560px}}
+
+/* Testimonials: one image-only marquee row, matching the project-gallery motion */
+.dual-testimonials{--marquee-gap:18px;display:block}
+.dual-testimonials .testimonial-image-card{width:300px;height:auto;padding:0;border:0;border-radius:14px;background:transparent;box-shadow:0 8px 24px #31224818;overflow:hidden}
+.dual-testimonials .testimonial-image-card img{display:block;width:300px;max-width:none;height:auto;aspect-ratio:auto;object-fit:contain}
+@media(max-width:480px){.dual-testimonials{--marquee-gap:12px}.dual-testimonials .testimonial-image-card{width:280px}.dual-testimonials .testimonial-image-card img{width:280px}}
