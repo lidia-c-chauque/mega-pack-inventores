@@ -363,3 +363,12 @@ body{padding-top:34px;padding-bottom:0}
  .learning-banners{gap:18px}
  .learning-banner{border-radius:11px}
 }
+
+
+/* Performance: decorative marquees animate only while near the viewport. */
+.dual-marquee:not(.is-visible) .dual-marquee-track{animation-play-state:paused}
+.daily-offer-bar time{display:inline-block;min-width:6.5ch;margin-left:.3em;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){
+  .dual-marquee-track{animation:none!important}
+  .learning-banner,.dual-marquee-card,.btn{transition:none!important}
+}
