@@ -393,3 +393,11 @@ body{padding-top:34px;padding-bottom:0}
 .testimonial-card{margin:0;padding:12px;overflow:hidden}
 .testimonial-card img{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;border-radius:12px;object-fit:contain;background:#f8f6f2}
 .testimonial-author{width:100%;padding:12px 5px 2px;margin-top:0}
+
+/* South Africa: keep the original image-led carousel presentation */
+.testimonials-section .proof-carousel{max-width:760px;--proof-gap:18px}
+.testimonials-section .proof-carousel-track{align-items:flex-start}
+.testimonials-section .proof-slide{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;display:flex;align-items:center;justify-content:center;gap:0;overflow:hidden}
+.testimonials-section .proof-slide img{display:block;width:auto;max-width:100%;height:auto;max-height:520px;object-fit:contain;border:0;border-radius:12px;box-shadow:none;background:transparent}
+.testimonials-section .proof-controls{margin-top:16px}
+@media(max-width:720px){.testimonials-section .proof-carousel{max-width:440px;--proof-gap:12px}.testimonials-section .proof-slide img{max-height:560px}}
