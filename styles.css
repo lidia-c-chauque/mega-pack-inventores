@@ -389,3 +389,7 @@ body{padding-top:34px;padding-bottom:0}
 @media(max-width:560px){.testimonial-grid{grid-template-columns:1fr;gap:11px}.testimonial-card{padding:19px 18px 16px}.testimonial-card blockquote{font-size:.98rem}}
 /* Defer layout and painting for long sections until they approach the viewport. */
 .family-story-section,.bonus-section,.testimonials-section,.pricing-section,.demonstration-section,.guarantee-section,.faq-section,.final-section{content-visibility:auto;contain-intrinsic-size:auto 850px}
+
+.testimonial-card{margin:0;padding:12px;overflow:hidden}
+.testimonial-card img{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;border-radius:12px;object-fit:contain;background:#f8f6f2}
+.testimonial-author{width:100%;padding:12px 5px 2px;margin-top:0}
