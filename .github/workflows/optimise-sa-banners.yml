@@ -1,0 +1,42 @@
+name: Optimise South Africa learning banners
+
+on:
+  push:
+    branches:
+      - sa-image-optimization
+    paths:
+      - '.github/workflows/optimise-sa-banners.yml'
+      - 'assets/learning-*-banner.png'
+
+permissions:
+  contents: write
+
+jobs:
+  optimise:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out South Africa branch
+        uses: actions/checkout@v4
+        with:
+          ref: sa-image-optimization
+          persist-credentials: true
+
+      - name: Install WebP encoder
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y webp
+
+      - name: Convert large learning banners to WebP
+        run: |
+          set -e
+          for file in assets/learning-*-banner.png; do
+            [ -f "$file" ] || continue
+            cwebp -quiet -q 76 -m 6 -resize 1000 0 "$file" -o "${file%.png}.webp"
+          done
+          sed -i 's/learning-robotics-banner\.png/learning-robotics-banner.webp/g; s/learning-science-banner\.png/learning-science-banner.webp/g; s/learning-crafts-banner\.png/learning-crafts-banner.webp/g; s/learning-logic-banner\.png/learning-logic-banner.webp/g' index.html
+
+      - name: Commit optimised assets and references
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Optimise South Africa learning banners as WebP'
+          file_pattern: 'assets/learning-*.webp index.html'
