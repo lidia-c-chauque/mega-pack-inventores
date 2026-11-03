@@ -1,0 +1,53 @@
+name: Generate responsive South Africa project thumbnails
+
+on:
+  push:
+    branches:
+      - sa-performance-optimization
+    paths:
+      - '.github/workflows/generate-sa-project-thumbnails.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-thumbnails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out reviewed branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: sa-performance-optimization
+          persist-credentials: true
+
+      - name: Generate 440px WebP thumbnails
+        run: |
+          python -m pip install --disable-pip-version-check Pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          root = Path("assets")
+          for number in range(1, 19):
+              source = root / f"project-{number:02d}.webp"
+              target = root / f"project-thumb-{number:02d}.webp"
+              if not source.is_file():
+                  raise SystemExit(f"Missing source image: {source}")
+              with Image.open(source) as image:
+                  image = image.convert("RGB")
+                  image.thumbnail((440, 550), Image.Resampling.LANCZOS)
+                  image.save(target, "WEBP", quality=82, method=6)
+          print("Generated 18 responsive project thumbnails.")
+          PY
+
+      - name: Commit generated thumbnails
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/project-thumb-*.webp
+          if git diff --cached --quiet; then
+            echo "Thumbnails already up to date."
+            exit 0
+          fi
+          git commit -m "Generate responsive WebP project thumbnails"
+          git push
