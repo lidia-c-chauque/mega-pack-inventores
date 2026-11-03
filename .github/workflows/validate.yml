@@ -2,7 +2,7 @@ name: Validate sales page
 
 on:
   pull_request:
-    branches: [young-inventors-za]
+    branches: [main]
   push:
     branches: [development]
 
@@ -18,7 +18,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Check local HTML, CSS and JavaScript references
+      - name: Check local HTML and CSS references
         run: |
           python3 - <<'PY'
           import pathlib, re, sys
@@ -30,18 +30,19 @@ jobs:
           errors = []
           refs = []
           for html in html_files:
-              text = html.read_text(encoding="utf-8")
-              refs += [(html, x) for x in re.findall(r'''(?:src|href)=["']([^"'#?]+)''', text, re.I)]
+              html_text = html.read_text(encoding="utf-8")
+              refs += [(html, x) for x in re.findall(r'''(?:src|href)=["']([^"'#?]+)''', html_text, re.I)]
           for css in root.rglob("*.css"):
               if ".git" in css.parts:
                   continue
-              text = css.read_text(encoding="utf-8")
-              refs += [(css, x) for x in re.findall(r'''url\(["']?([^"'\)]+)''', text, re.I)]
+              css_text = css.read_text(encoding="utf-8")
+              refs += [(css, x) for x in re.findall(r'''url\(["']?([^"'\)]+)''', css_text, re.I)]
           for source, ref in refs:
               ref = ref.strip()
               if not ref or ref.startswith(("http://", "https://", "//", "data:", "mailto:", "tel:", "javascript:")):
                   continue
-              clean_ref = ref.split("?")[0]\n              target = (root / clean_ref.lstrip("/")).resolve() if clean_ref.startswith("/") else (source.parent / clean_ref).resolve()
+              clean_ref = ref.split("?")[0]
+              target = (root / clean_ref.lstrip("/")).resolve() if clean_ref.startswith("/") else (source.parent / clean_ref).resolve()
               if not target.exists():
                   errors.append(f"{source}: missing local reference: {ref}")
           if errors:
