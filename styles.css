@@ -413,17 +413,102 @@ body{padding-top:34px;padding-bottom:0}
 @media(prefers-reduced-motion:reduce){.dual-marquee:not(.is-visible) .dual-marquee-track{animation:none!important}}
 
 
-/* Scoped layout for the four learning-category cards only */
-#conteudo-kit.learning-section .learning-category-grid{align-items:stretch;max-width:1000px;margin:0 auto}
-#conteudo-kit.learning-section .learning-category-card{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:235px;padding:25px 18px}
-#conteudo-kit.learning-section .learning-category-card .learning-category-icon{margin-bottom:10px}
-#conteudo-kit.learning-section .learning-category-count{display:block;margin:0 0 9px;color:#5831aa;font-size:1.9rem;font-weight:900;line-height:1}
-#conteudo-kit.learning-section .learning-category-card h3{margin:0 0 8px;line-height:1.25}
-#conteudo-kit.learning-section .learning-category-card p{max-width:225px;line-height:1.45}
-#conteudo-kit.learning-section .learning-activity-note{display:flex;align-items:center;gap:12px;max-width:900px;margin:20px auto 0;padding:16px 20px;border:1px solid #e9e2ef;border-radius:16px;background:#fff;box-shadow:0 6px 20px #21143508}
-#conteudo-kit.learning-section .learning-activity-note-icon{flex:0 0 auto;font-size:1.45rem;line-height:1}
-#conteudo-kit.learning-section .learning-activity-note p{margin:0;color:#625773;font-size:.94rem;line-height:1.5}
-@media(max-width:480px){
- #conteudo-kit.learning-section .learning-category-card{min-height:220px;padding:20px 14px}
- #conteudo-kit.learning-section .learning-activity-note{align-items:flex-start;padding:14px}
+/* Scoped horizontal illustrated cards for What Will Your Child Learn */
+#conteudo-kit.learning-section .learning-category-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:14px;
+  max-width:1000px;
+  margin:0 auto;
+}
+#conteudo-kit.learning-section .learning-category-card{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+  gap:16px;
+  min-height:126px;
+  padding:18px 20px;
+  text-align:left;
+  border:1px solid #e8e1f1;
+  border-radius:18px;
+  box-shadow:0 7px 20px #3122480d,0 2px 5px #31224808;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+#conteudo-kit.learning-section .learning-card-robotics{background:linear-gradient(110deg,#f0eaff 0%,#fbf9ff 100%);border-color:#e4d8fb}
+#conteudo-kit.learning-section .learning-card-science{background:linear-gradient(110deg,#e8f7ef 0%,#fbfffc 100%);border-color:#d7eee1}
+#conteudo-kit.learning-section .learning-card-crafts{background:linear-gradient(110deg,#fff2e3 0%,#fffdfa 100%);border-color:#f4e3ce}
+#conteudo-kit.learning-section .learning-card-logic{background:linear-gradient(110deg,#eaf1ff 0%,#fbfcff 100%);border-color:#dbe5fa}
+#conteudo-kit.learning-section .learning-card-symbol{
+  display:grid;
+  place-items:center;
+  flex:0 0 58px;
+  width:58px;
+  height:58px;
+  margin:0;
+  border:1px solid #ffffffc9;
+  border-radius:17px;
+  background:#ffffffd9;
+  box-shadow:0 4px 12px #30204410;
+  font-size:1.85rem;
+  line-height:1;
+}
+#conteudo-kit.learning-section .learning-card-content{min-width:0;flex:1}
+#conteudo-kit.learning-section .learning-category-count{
+  display:inline-flex;
+  align-items:center;
+  margin:0 0 5px;
+  padding:3px 9px;
+  border-radius:999px;
+  background:#ffffffc9;
+  color:#5831aa;
+  font-size:.88rem;
+  font-weight:900;
+  line-height:1.2;
+}
+#conteudo-kit.learning-section .learning-category-card h3{
+  margin:0 0 5px;
+  color:#302044;
+  font-size:1.04rem;
+  line-height:1.25;
+}
+#conteudo-kit.learning-section .learning-category-card p{
+  max-width:390px;
+  margin:0;
+  color:#655a71;
+  font-size:.86rem;
+  line-height:1.4;
+}
+@media(hover:hover){
+  #conteudo-kit.learning-section .learning-category-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 26px #31224816,0 3px 8px #3122480a;
+    border-color:#cfc0e6;
+  }
+}
+#conteudo-kit.learning-section .learning-activity-note{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:900px;
+  margin:20px auto 0;
+  padding:15px 19px;
+  border:1px solid #e9e2ef;
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 6px 20px #21143508;
+}
+#conteudo-kit.learning-section .learning-activity-note-icon{flex:0 0 auto;font-size:1.4rem;line-height:1}
+#conteudo-kit.learning-section .learning-activity-note p{margin:0;color:#625773;font-size:.92rem;line-height:1.5}
+@media(max-width:720px){
+  #conteudo-kit.learning-section .learning-category-grid{grid-template-columns:minmax(0,1fr);gap:11px}
+  #conteudo-kit.learning-section .learning-category-card{min-height:108px;padding:15px 16px;gap:13px;border-radius:16px}
+  #conteudo-kit.learning-section .learning-card-symbol{flex-basis:50px;width:50px;height:50px;border-radius:14px;font-size:1.65rem}
+  #conteudo-kit.learning-section .learning-category-card h3{font-size:1rem}
+  #conteudo-kit.learning-section .learning-category-card p{font-size:.83rem}
+  #conteudo-kit.learning-section .learning-activity-note{align-items:flex-start;padding:13px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+  #conteudo-kit.learning-section .learning-category-card{transition:none}
 }
