@@ -411,3 +411,19 @@ body{padding-top:34px;padding-bottom:0}
 /* Performance: keep decorative marquees idle outside the viewport. */
 .dual-marquee:not(.is-visible) .dual-marquee-track{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.dual-marquee:not(.is-visible) .dual-marquee-track{animation:none!important}}
+
+
+/* Scoped layout for the four learning-category cards only */
+#conteudo-kit.learning-section .learning-category-grid{align-items:stretch;max-width:1000px;margin:0 auto}
+#conteudo-kit.learning-section .learning-category-card{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:235px;padding:25px 18px}
+#conteudo-kit.learning-section .learning-category-card .learning-category-icon{margin-bottom:10px}
+#conteudo-kit.learning-section .learning-category-count{display:block;margin:0 0 9px;color:#5831aa;font-size:1.9rem;font-weight:900;line-height:1}
+#conteudo-kit.learning-section .learning-category-card h3{margin:0 0 8px;line-height:1.25}
+#conteudo-kit.learning-section .learning-category-card p{max-width:225px;line-height:1.45}
+#conteudo-kit.learning-section .learning-activity-note{display:flex;align-items:center;gap:12px;max-width:900px;margin:20px auto 0;padding:16px 20px;border:1px solid #e9e2ef;border-radius:16px;background:#fff;box-shadow:0 6px 20px #21143508}
+#conteudo-kit.learning-section .learning-activity-note-icon{flex:0 0 auto;font-size:1.45rem;line-height:1}
+#conteudo-kit.learning-section .learning-activity-note p{margin:0;color:#625773;font-size:.94rem;line-height:1.5}
+@media(max-width:480px){
+ #conteudo-kit.learning-section .learning-category-card{min-height:220px;padding:20px 14px}
+ #conteudo-kit.learning-section .learning-activity-note{align-items:flex-start;padding:14px}
+}
